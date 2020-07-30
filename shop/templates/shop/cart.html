@@ -1,0 +1,13 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}Cart - {{ cart.id }}{% endblock %}
+
+{% block body %}
+    <h1>Products in my Cart</h1>
+
+    <ul>
+        {% for product in cart.products.all %}
+            <li>{{ product.name }} - {{ product.price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

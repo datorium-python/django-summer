@@ -1,0 +1,15 @@
+{% extends 'shop/base.html' %}
+{% load shop_extras %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+    <h1>{{ product.name }}</h1>
+    <div>Test Price: {{ test_price|format_price:"USD" }}</div>
+    <small>{{ product.price }}</small>
+
+    <form action="{% url 'cart' %}" method="post">{% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Add to Cart!">
+    </form>
+{% endblock %}
