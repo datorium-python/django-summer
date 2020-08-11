@@ -1,5 +1,7 @@
 {% extends 'shop/base.html' %}
 
+{% load static %}
+
 {% block title %}Cart - {{ cart.id }}{% endblock %}
 
 {% block body %}
@@ -10,4 +12,13 @@
             <li>{{ product.name }} - {{ product.price }}</li>
         {% endfor %}
     </ul>
+
+    <div>
+        <h2>Total: {{ total }}</h2>
+    </div>
+
+    <button id="checkout-button">Checkout</button>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{% static 'shop/main.js' %}"></script>
 {% endblock %}
